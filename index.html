@@ -434,8 +434,12 @@ function art(p){
  if(c==="watch")return w(`<rect x="76" y="4" width="48" height="40" rx="8" fill="#D4D4D8"/><rect x="76" y="116" width="48" height="40" rx="8" fill="#D4D4D8"/><rect x="62" y="38" width="76" height="84" rx="22" fill="#0B0B0B" ${S}/><rect x="70" y="46" width="60" height="68" rx="15" fill="#F2F2F2"/>`);
  return w(`<rect x="62" y="40" width="76" height="76" rx="10" fill="#F2F2F2" ${S}/><rect x="86" y="116" width="8" height="16" fill="#A1A1AA"/><rect x="106" y="116" width="8" height="16" fill="#A1A1AA"/><circle cx="100" cy="78" r="12" fill="none" ${S}/>`);
 }
-function imgHTML(p,lazy){const n=(p.name||"").toLowerCase();const u=/mac mini/.test(n)?IMG.macmini:/airpods max/.test(n)?IMG.airpodsmax:IMG[p.cat];return u?`<img src="${u}" alt="${p.name} product image" ${lazy?'loading="lazy"':""} referrerpolicy="no-referrer" onerror="this.outerHTML=this.dataset.f" data-f='${art(p).replace(/'/g,"&#39;")}'>`:art(p)}
-
+function imgHTML(p,lazy){
+ const n=(p.name||"").toLowerCase();
+ const custom=/iPhone 18 Pro Max 512GB/i.test(p.name)&&p.sim==="Physical SIM"&&p.color==="Burgundy";
+ const u=custom?"iphone-18-pro-max-512-burgundy.png":/mac mini/.test(n)?IMG.macmini:/airpods max/.test(n)?IMG.airpodsmax:IMG[p.cat];
+ return u?`<img src="${u}" alt="${p.name} product image" ${lazy?'loading="lazy"':""} referrerpolicy="no-referrer" onerror="this.outerHTML=this.dataset.f" data-f='${art(p).replace(/'/g,"&#39;")}'>`:art(p)
+}
 /* ============ Rendering ============ */
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 function card(p){
