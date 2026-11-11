@@ -437,7 +437,7 @@ function art(p){
 function imgHTML(p,lazy){
  const n=(p.name||"").toLowerCase();
  const custom=/iPhone 18 Pro Max 512GB/i.test(p.name)&&p.sim==="Physical SIM"&&p.color==="Burgundy";
- const u=custom?"iphone-18-pro-max-512-burgundy.png":/mac mini/.test(n)?IMG.macmini:/airpods max/.test(n)?IMG.airpodsmax:IMG[p.cat];
+ const u=custom?"iphone-18-pro-max-512-burgundy.jpeg":/mac mini/.test(n)?IMG.macmini:/airpods max/.test(n)?IMG.airpodsmax:IMG[p.cat];
  return u?`<img src="${u}" alt="${p.name} product image" ${lazy?'loading="lazy"':""} referrerpolicy="no-referrer" onerror="this.outerHTML=this.dataset.f" data-f='${art(p).replace(/'/g,"&#39;")}'>`:art(p)
 }
 /* ============ Rendering ============ */
